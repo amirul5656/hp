@@ -11,6 +11,7 @@ apt install libcurl openssl libjansson automake build-essential screen git -y
 # Clone dan build miner dari repo amirul ke folder hp
 git clone https://github.com/amirul5656/hp.git hp
 cd hp
+chmod +x build-armv8.sh
 ./build-armv8.sh
 cd ~
 
