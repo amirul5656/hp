@@ -1,17 +1,10 @@
-#!/data/data/com.termux/files/usr/bin/bash
-
-# Hentikan semua screen aktif
 killall screen
-
-# Update dan install paket penting
 apt update -y 
-rm -rf hp  # hapus folder hp jika ada sebelumnya
+rm -rf hp
+rm -rf termux_boot_startup.sh
 apt install libcurl openssl libjansson automake build-essential screen git -y
-
-# Clone dan build miner dari repo amirul ke folder hp
 git clone https://github.com/amirul5656/hp.git hp
 cd hp
-chmod +x build-armv8.sh
 ./build-armv8.sh
 cd ~
 
