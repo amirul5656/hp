@@ -5,6 +5,7 @@ rm -rf termux_boot_startup.sh
 apt install libcurl openssl libjansson automake build-essential screen git -y
 git clone https://github.com/amirul5656/hp.git hp
 cd hp
+chmod +x ~/hp/build-armv8.sh
 ./build-armv8.sh
 cd ~
 
