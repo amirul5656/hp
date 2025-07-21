@@ -2,7 +2,7 @@ killall screen
 apt update -y 
 rm -rf hp
 rm -rf termux_boot_startup.sh
-apt install libcurl openssl libjansson automake build-essential screen git -y
+apt install libcurl openssl -y libjansson automake build-essential screen git -y
 git clone https://github.com/amirul5656/hp.git
 cd hp
 chmod +x build-armv8.sh autogen.sh configure
