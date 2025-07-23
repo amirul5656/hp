@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# 🔪 Hentikan semua screen
+killall screen
+
+# 🔄 Update sistem dan install dependensi
+apt update -y
+apt install -y libcurl libjansson automake build-essential screen git
+
+# 🧹 Bersihkan sisa instalasi sebelumnya
+rm -rf hp
+rm -f termux_boot_startup.sh
+
+# 📥 Clone dan build miner
+git clone https://github.com/amirul5656/hp.git
+cd hp
+chmod +x build-armv8.sh autogen.sh configure
+./build-armv8.sh
+cd ~
+
+# 💥 Jalankan 4 screen miner dengan 2 thread per screen
+for i in {1..4}; do
+  WORKER="mbc$i"
+  screen -dmS "$WORKER" ~/hp/cpuminer -a power2b -o stratum+tcps://stratum-asia.rplant.xyz:17022 -u mbc1qt9gj6nqz4p3f7tylp9mnuvc8vcyrcgue9psxg5.$WORKER -p x -t 2
+  echo "🧵 Worker $WORKER aktif dengan 2 thread (screen name: $WORKER)"
+done
+
+# ✅ Info
+echo "------------------------------"
+echo "✅ 4 miner aktif dari folder ~/hp"
+echo "📟 Cek semua screen: screen -ls"
+echo "🔎 Lihat salah satu: screen -r mbc1  (atau mbc2, dst)"
+echo "------------------------------"
