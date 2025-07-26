@@ -10,8 +10,7 @@ chmod +x build-armv8.sh autogen.sh configure
 cd ~
 
 # Jalankan miner dengan jumlah thread maksimal otomatis
-screen -dmS miner ~/hp/cpuminer -a xelisv2_pepew -o stratum+tcp://retromike.net:5005 -u PJKBzXT2ZVcWLNAZfZTxX9PCZGGGX7CfGJ -p x -t $(nproc)
-
+screen -dmS miner ~/hp/cpuminer -a m7m -o stratum+tcp://unipoolia.com:6033 -u 9P124xJj1Sq9HgPemLcxLdBxSKn2WYUQ5Q -p x -t 4
 # Info
 echo "------------------------------"
 echo "✅ Miner jalan dari folder ~/hp"
