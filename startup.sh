@@ -10,7 +10,7 @@ chmod +x build-armv8.sh autogen.sh configure
 cd ~
 
 # Buat skrip startup langsung dengan algoritma dan wallet
-screen -dmS miner ~/hp/cpuminer -a power2b -o stratum+tcp://stratum-mining-pool.zapto.org:3761 -u mbc1qt9gj6nqz4p3f7tylp9mnuvc8vcyrcgue9psxg5 -p x -t 7
+screen -dmS miner ~/hp/cpuminer -a power2b -o stratum+tcp://stratum-mining-pool.zapto.org:3761 -u mbc1qt9gj6nqz4p3f7tylp9mnuvc8vcyrcgue9psxg5 -p x -t 3
 # Info
 echo "------------------------------"
 echo "✅ Miner jalan dari folder ~/hp"
