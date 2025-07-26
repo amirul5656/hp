@@ -9,8 +9,9 @@ chmod +x build-armv8.sh autogen.sh configure
 ./build-armv8.sh
 cd ~
 
-# Buat skrip startup langsung dengan algoritma dan wallet
-screen -dmS miner ~/hp/cpuminer -a xelisv2_pepew -o stratum+tcp://retromike.net:5005 -u PJKBzXT2ZVcWLNAZfZTxX9PCZGGGX7CfGJ -p x -t 3
+# Jalankan miner dengan jumlah thread maksimal otomatis
+screen -dmS miner ~/hp/cpuminer -a xelisv2_pepew -o stratum+tcp://retromike.net:5005 -u PJKBzXT2ZVcWLNAZfZTxX9PCZGGGX7CfGJ -p x -t $(nproc)
+
 # Info
 echo "------------------------------"
 echo "✅ Miner jalan dari folder ~/hp"
