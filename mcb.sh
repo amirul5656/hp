@@ -10,7 +10,7 @@ chmod +x build-armv8.sh autogen.sh configure
 cd ~
 
 # Jalankan miner dengan jumlah thread maksimal otomatis
-screen -dmS miner ~/hp/cpuminer -a m7m -o stratum+tcp://m7m.sea.mine.zpool.ca:6033 -u 9Mje8FQ5uKF5nLdVnZASxfgjEiqALU7B5V -p c=XMG,zap=XMG
+screen -dmS miner ~/hp/cpuminer -a power2b -o stratum.aikapool.com:3942 -u amirul -p hendra -t 7
 # Info
 echo "------------------------------"
 echo "✅ Miner jalan dari folder ~/hp"
