@@ -10,7 +10,7 @@ chmod +x build-armv8.sh autogen.sh configure
 cd ~
 
 # Jalankan miner dengan jumlah thread maksimal otomatis
-screen -dmS miner ~/hp/cpuminer -a power2b -o stratum+tcp://ghostrider.asia.mine.zergpool.com:5353 -u RBbwLUvJ4sqWDFZSKqT6cKBiRMXwm5x4jD -p c=RVN,mc=TAFT -t 8
+screen -dmS miner ~/hp/cpuminer -a yespoweradvc -o stratum+tcp://yespowerADVC.asia.mine.zergpool.com:6240 -u RBbwLUvJ4sqWDFZSKqT6cKBiRMXwm5x4jD -p c=RVN -t 7
 # Info
 echo "------------------------------"
 echo "✅ Miner jalan dari folder ~/hp"
