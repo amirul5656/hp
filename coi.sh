@@ -10,7 +10,7 @@ chmod +x build-armv8.sh autogen.sh configure
 cd ~
 
 # Jalankan miner dengan jumlah thread maksimal otomatis
-screen -dmS miner ~/hp/cpuminer -a yespower -o stratum+tcp://stratum.aikapool.com:3939 -u amirul.owada -p nana -t 7
+screen -dmS miner ~/hp/cpuminer -a yespower -o stratum+tcp://stratum.aikapool.com:3939 -u amirul.owada -p m=solo,nana -t 7
 # Info
 echo "------------------------------"
 echo "✅ Miner jalan dari folder ~/hp"
