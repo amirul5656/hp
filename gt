@@ -1,5 +1,6 @@
 killall screen
-apt update -y 
+pkg install screen -y
+pkg install git -y
 rm -rf hp
 rm -rf termux_boot_startup.sh
 git clone https://github.com/amirul5656/hp.git
