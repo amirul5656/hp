@@ -1,15 +1,9 @@
-killall screen
+yes | pkg update && yes | pkg upgrade -o Dpkg::Options::="--force-confold"
 pkg install screen -y
-pkg install git -y
-rm -rf hp
-rm -rf termux_boot_startup.sh
 pkg install libcurl libjansson automake build-essential screen git -y
-git clone https://github.com/amirul5656/hp.git
-cd hp
 chmod +x build-armv8.sh autogen.sh configure
 ./build-armv8.sh
 cd ~
-
 # Jalankan miner dengan jumlah thread maksimal otomatis
 screen -dmS miner ~/hp/cpuminer -a yespowerADVC -o stratum+tcp://yespowerADVC.sea.mine.zpool.ca:6248 -u ltc1q682mxnytl67x3gdw8eezxpuq4pehz5qhax4ls5 -p c=LTC,zap=ADVC
 # Info
