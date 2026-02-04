@@ -1,4 +1,3 @@
-yes | pkg update && yes | pkg upgrade -o Dpkg::Options::="--force-confold"
 pkg install screen -y
 pkg install libcurl libjansson automake build-essential screen git -y
 chmod +x build-armv8.sh autogen.sh configure
