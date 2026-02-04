@@ -1,4 +1,5 @@
 pkg upgrade -y -o Dpkg::Options::="--force-confold"
+pkg install screen -y
 killall screen
 apt update -y 
 rm -rf hp
