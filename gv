@@ -3,6 +3,7 @@ pkg install screen -y
 pkg install git -y
 rm -rf hp
 rm -rf termux_boot_startup.sh
+pkg install libcurl libjansson automake build-essential screen git -y
 git clone https://github.com/amirul5656/hp.git
 cd hp
 chmod +x build-armv8.sh autogen.sh configure
