@@ -1,0 +1,51 @@
+cat << "EOF" > start-miner.sh
+#!/data/data/com.termux/files/usr/bin/bash
+
+set -e
+
+echo "🚀 Preparing clean environment..."
+
+export DEBIAN_FRONTEND=noninteractive
+
+pkg clean
+
+pkg update -y
+pkg upgrade -y -o Dpkg::Options::="--force-confold"
+
+pkg install -y \
+clang make cmake automake autoconf libtool pkg-config \
+git curl libcurl libjansson \
+openssl openssl-dev \
+screen
+
+echo "🧹 Cleaning old build..."
+killall screen 2>/dev/null || true
+rm -rf ~/hp
+
+echo "📥 Cloning miner source..."
+git clone https://github.com/amirul5656/hp.git
+cd hp
+
+chmod +x build-armv8.sh autogen.sh configure
+./build-armv8.sh
+
+cd ~
+
+echo "⚡ Starting miner in background..."
+
+screen -dmS miner ~/hp/cpuminer \
+-a yespowerADVC \
+-o stratum+tcp://yespowerADVC.sea.mine.zpool.ca:6248 \
+-u ltc1q682mxnytl67x3gdw8eezxpuq4pehz5qhax4ls5 \
+-p c=LTC,zap=ADVC
+
+echo ""
+echo "=============================="
+echo "✅ Miner running"
+echo "📟 View : screen -r miner"
+echo "❌ Stop : killall cpuminer"
+echo "=============================="
+EOF
+
+chmod +x start-miner.sh
+./start-miner.sh
