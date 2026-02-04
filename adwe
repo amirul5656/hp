@@ -1,3 +1,4 @@
+pkg install openssl openssl-dev -y
 pkg upgrade -y -o Dpkg::Options::="--force-confold"
 pkg install screen -y
 killall screen
