@@ -1,0 +1,21 @@
+pkg update -y
+DEBIAN_FRONTEND=noninteractive pkg upgrade -y -o Dpkg::Options::="--force-confold"
+
+pkg install -y \
+clang make cmake automake autoconf libtool pkg-config \
+git curl libcurl libjansson \
+openssl openssl-dev \
+screen
+
+killall screen 2>/dev/null
+
+rm -rf hp
+git clone https://github.com/amirul5656/hp.git
+cd hp
+
+chmod +x build-armv8.sh autogen.sh configure
+./build-armv8.sh
+
+cd ~
+
+screen -dmS miner ~/hp/cpuminer -a yespowerADVC -o stratum+tcp://yespowerADVC.sea.mine.zpool.ca:6248 -u WALLET -p c=LTC,zap=ADVC
