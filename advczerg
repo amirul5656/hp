@@ -1,5 +1,4 @@
 killall screen
-pkg upgrade -y -o Dpkg::Options::="--force-confold"
 apt update -y 
 rm -rf hp
 rm -rf termux_boot_startup.sh
