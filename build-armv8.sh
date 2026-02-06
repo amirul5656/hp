@@ -1,15 +1,19 @@
 #!/bin/bash
 
-# Linux build
-
-make distclean || echo clean
+# ===== Clean previous build =====
+make distclean 2>/dev/null || echo "skip clean"
 
 rm -f config.status
-./autogen.sh || echo done
 
-#CFLAGS="-O2 -march=armv8-a+crypto+sha2+aes -Wall -flax-vector-conversions" ./configure  --with-curl  --host=aarch64-cortexa76-elf --build=x86_64-pc-linux-gnu --target=aarch64-cortexa76-elf
-CFLAGS="-O2 -march=armv8-a+crypto+sha2+aes -Wall -flax-vector-conversions" ./configure  --with-curl
+# ===== Generate configure =====
+./autogen.sh || echo "autogen done"
 
-make -j $(nproc)
+# ===== Configure =====
+CFLAGS="-O2 -march=armv8-a+crypto+sha2+aes -Wall -flax-vector-conversions" \
+./configure --with-curl
 
-#strip -s cpuminer
+# ===== Build with 2 threads only =====
+make -j2
+
+# ===== Optional strip (smaller binary) =====
+# strip -s cpuminer
